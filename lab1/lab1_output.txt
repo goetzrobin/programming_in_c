@@ -1,0 +1,44 @@
+Script started on Wed 29 Aug 2018 07:15:38 PM EDT
+[?1034hbash-4.2$ cc lab1.c
+bash-4.2$ ./a.out
+The sum of 8 and 3 is 11.
+The difference between 8 and 3 is 5. 
+bash-4.2$ cc lab1task32[K[K2.c
+bash-4.2$ ./a.out
+Enter your first number: 9
+Enter your second number: 5
+The sum of 9 and 5 is 14.
+The difference between 9 and 5 is 4. 
+The product of 9 and 5 is 45. 
+bash-4.2$ ./a.out
+Enter your first number: 3
+Enter your second number: 4
+The sum of 3 and 4 is 7.
+The difference between 3 and 4 is -1. 
+The product of 3 and 4 is 12. 
+bash-4.2$ ./a.out
+Enter your first number: 7
+Enter your second number: 7
+The sum of 7 and 7 is 14.
+The difference between 7 and 7 is 0. 
+The product of 7 and 7 is 49. 
+bash-4.2$ ./a.out[K[K[K[K[K[K[Kc lab1task3.cc lab1task3.c[C[C[C[C[C[C[C[C[C[C[C[C
+bash-4.2$ cc lab1task3.c[C[C[C[C[C[C[C[C[C[C[7P./a.out
+Enter the radius: 4.5
+The circle radius is	 4.500000. 
+The calculated area is	 63.617251. 
+The circumfence is	 28.274334. 
+bash-4.2$ ./a.out
+Enter the radius: 10
+The circle radius is	 10.000000. 
+The calculated area is	 314.159265. 
+The circumfence is	 62.831853. 
+bash-4.2$ ./a.out
+Enter the radius: 2
+The circle radius is	 2.000000. 
+The calculated area is	 12.566371. 
+The circumfence is	 12.566371. 
+bash-4.2$ exit
+exit
+
+Script done on Wed 29 Aug 2018 07:17:39 PM EDT

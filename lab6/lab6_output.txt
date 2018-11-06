@@ -1,0 +1,221 @@
+Script started on Sat Sep 29 10:49:19 2018
+bash: /Users/robbie/.bashrc: line 2: syntax error near unexpected token `newline'
+bash: /Users/robbie/.bashrc: line 2: `export PATH=$PATH:</usr/local/bin/npm>'
+[?1034hbash-3.2$ ./a.outcc lab5_part2.c[C[C[C[C[C[C[C[C[C[C[8P./a.out[K./a.out[Kcc lab6_percent_driver.c
+bash-3.2$ .a[K/a.out
+
+The boiling point from our unknown substance is is: 101.00.
+The boiling point from the table is: 100.70.
+The percentage range of accuracy is: 3.
+The unknown substance is the substance from the table: 1.
+
+The boiling point from our unknown substance is is: 105.23.
+The boiling point from the table is: 100.70.
+The percentage range of accuracy is: 3.
+The unknown substance is the substance from the table: 0.
+bash-3.2$ ./a.outcc lab6_percent_driver.c[C[C[C[C[C[C[C[C[C[C./a.out[Kcc lab5_part2.c[C[C[C[C[C[C[C[C[C[C[8P./a.outcc lab5.c[2P./a.outcc lab5_part2.c[C[C[C[C[C[C[C[C[C[C[8P./a.outcc lab6_percent_driver.c[C[C[C[C[C[C[C[C[C[C./a.out[K[Kcc lab6.c
+bash-3.2$ .a.out[K[K[K[K[K/a.out
+BOILING POINT
+
+Programm written by Robin Goetz. 
+Program compiled on Sep 29 2018 at 10:50:12. 
+
+PLEASE ENTER BOILING POINT DATA: 	505
+You entered the following boiling point:	 505.00.
+
+The substance is unidentified.
+bash-3.2$ ./a.out
+BOILING POINT
+
+Programm written by Robin Goetz. 
+Program compiled on Sep 29 2018 at 10:50:12. 
+
+PLEASE ENTER BOILING POINT DATA: 	1148
+You entered the following boiling point:	 1148.00.
+
+The substance is unidentified.
+bash-3.2$ ./a.out
+BOILING POINT
+
+Programm written by Robin Goetz. 
+Program compiled on Sep 29 2018 at 10:50:12. 
+
+PLEASE ENTER BOILING POINT DATA: 	2702
+You entered the following boiling point:	 2702.00.
+
+You entered a boiling point of 2702.00, which is within 3% of the substance "Gold".
+2702.00 is 0.07% away from the reference temperature of 2700.00 for "Gold".
+
+bash-3.2$ ./a.out
+BOILING POINT
+
+Programm written by Robin Goetz. 
+Program compiled on Sep 29 2018 at 10:50:12. 
+
+PLEASE ENTER BOILING POINT DATA: 	101
+You entered the following boiling point:	 101.00.
+
+You entered a boiling point of 101.00, which is within 3% of the substance "Water".
+101.00 is 0.30% away from the reference temperature of 100.70 for "Water".
+
+bash-3.2$ ./a.out
+BOILING POINT
+
+Programm written by Robin Goetz. 
+Program compiled on Sep 29 2018 at 10:50:12. 
+
+PLEASE ENTER BOILING POINT DATA: 	99
+You entered the following boiling point:	 99.00.
+
+You entered a boiling point of 99.00, which is within 3% of the substance "Water".
+99.00 is -1.69% away from the reference temperature of 100.70 for "Water".
+
+bash-3.2$ ./a.out
+BOILING POINT
+
+Programm written by Robin Goetz. 
+Program compiled on Sep 29 2018 at 10:50:12. 
+
+PLEASE ENTER BOILING POINT DATA: 	1750
+You entered the following boiling point:	 1750.00.
+
+The substance is unidentified.
+bash-3.2$ ./a.out
+BOILING POINT
+
+Programm written by Robin Goetz. 
+Program compiled on Sep 29 2018 at 10:50:12. 
+
+PLEASE ENTER BOILING POINT DATA: 	-80
+You entered the following boiling point:	 -80.00.
+
+You entered a boiling point of -80.00, which is within 3% of the substance "Carbon dioxide".
+-80.00 is 1.91% away from the reference temperature of -78.50 for "Carbon dioxide".
+
+bash-3.2$ ./a.out
+BOILING POINT
+
+Programm written by Robin Goetz. 
+Program compiled on Sep 29 2018 at 10:50:12. 
+
+PLEASE ENTER BOILING POINT DATA: 	2580
+You entered the following boiling point:	 2580.00.
+
+You entered a boiling point of 2580.00, which is within 3% of the substance "Copper".
+2580.00 is 0.70% away from the reference temperature of 2562.00 for "Copper".
+
+bash-3.2$ ./a.out
+BOILING POINT
+
+Programm written by Robin Goetz. 
+Program compiled on Sep 29 2018 at 10:50:12. 
+
+PLEASE ENTER BOILING POINT DATA: 	2590
+You entered the following boiling point:	 2590.00.
+
+You entered a boiling point of 2590.00, which is within 3% of the substance "Copper".
+2590.00 is 1.09% away from the reference temperature of 2562.00 for "Copper".
+
+bash-3.2$ ./a.out
+BOILING POINT
+
+Programm written by Robin Goetz. 
+Program compiled on Sep 29 2018 at 10:50:12. 
+
+PLEASE ENTER BOILING POINT DATA: 	560
+You entered the following boiling point:	 560.00.
+
+The substance is unidentified.
+bash-3.2$ ./a.out
+BOILING POINT
+
+Programm written by Robin Goetz. 
+Program compiled on Sep 29 2018 at 10:50:12. 
+
+PLEASE ENTER BOILING POINT DATA: 	450
+You entered the following boiling point:	 450.00.
+
+You entered a boiling point of 450.00, which is within 3% of the substance "Sulfur".
+450.00 is 1.21% away from the reference temperature of 444.60 for "Sulfur".
+
+bash-3.2$ ./a.out
+BOILING POINT
+
+Programm written by Robin Goetz. 
+Program compiled on Sep 29 2018 at 10:50:12. 
+
+PLEASE ENTER BOILING POINT DATA: 	3255
+You entered the following boiling point:	 3255.00.
+
+You entered a boiling point of 3255.00, which is within 3% of the substance "Silicon".
+3255.00 is -0.76% away from the reference temperature of 3280.00 for "Silicon".
+
+bash-3.2$ ./a.out
+BOILING POINT
+
+Programm written by Robin Goetz. 
+Program compiled on Sep 29 2018 at 10:50:12. 
+
+PLEASE ENTER BOILING POINT DATA: 	35 60
+You entered the following boiling point:	 360.00.
+
+You entered a boiling point of 360.00, which is within 3% of the substance "Mercury".
+360.00 is 0.87% away from the reference temperature of 356.90 for "Mercury".
+
+bash-3.2$ ./a.out
+BOILING POINT
+
+Programm written by Robin Goetz. 
+Program compiled on Sep 29 2018 at 10:50:12. 
+
+PLEASE ENTER BOILING POINT DATA: 	-33
+You entered the following boiling point:	 -33.00.
+
+The substance is unidentified.
+bash-3.2$ ./a.out
+BOILING POINT
+
+Programm written by Robin Goetz. 
+Program compiled on Sep 29 2018 at 10:50:12. 
+
+PLEASE ENTER BOILING POINT DATA: 	1200
+You entered the following boiling point:	 1200.00.
+
+The substance is unidentified.
+bash-3.2$ ./a.out
+BOILING POINT
+
+Programm written by Robin Goetz. 
+Program compiled on Sep 29 2018 at 10:50:12. 
+
+PLEASE ENTER BOILING POINT DATA: 	2858
+You entered the following boiling point:	 2858.00.
+
+You entered a boiling point of 2858.00, which is within 3% of the substance "Iron".
+2858.00 is -0.14% away from the reference temperature of 2862.00 for "Iron".
+
+bash-3.2$ ./a.out
+BOILING POINT
+
+Programm written by Robin Goetz. 
+Program compiled on Sep 29 2018 at 10:50:12. 
+
+PLEASE ENTER BOILING POINT DATA: 	305
+You entered the following boiling point:	 305.00.
+
+You entered a boiling point of 305.00, which is within 3% of the substance "Olive Oil".
+305.00 is 1.67% away from the reference temperature of 300.00 for "Olive Oil".
+
+bash-3.2$ ./a.out
+BOILING POINT
+
+Programm written by Robin Goetz. 
+Program compiled on Sep 29 2018 at 10:50:12. 
+
+PLEASE ENTER BOILING POINT DATA: 	298
+You entered the following boiling point:	 298.00.
+
+You entered a boiling point of 298.00, which is within 3% of the substance "Olive Oil".
+298.00 is -0.67% away from the reference temperature of 300.00 for "Olive Oil".
+
+bash-3.2$ 

@@ -1,0 +1,267 @@
+Script started on Wed Oct 24 19:24:02 2018
+bash: /Users/robbie/.bashrc: line 2: syntax error near unexpected token `newline'
+bash: /Users/robbie/.bashrc: line 2: `export PATH=$PATH:</usr/local/bin/npm>'
+[?1034hbash-3.2$ cc lab7.c
+bash-3.2$ ./a.out
+UPC VERIFICATION PROGRAM WRITTEN IN C
+
+Programm written by Robin Goetz. 
+Program compiled on Oct 24 2018 at 19:24:11. 
+
+
+Please enter your barcode, seperated by a new line (or X or Q to exit):
+0
+7
+2
+9
+7
+9
+0
+0
+0
+1
+8
+3
+
+Entered bar-code: 072979000183
+
+The barcode 072979000183 has been successfully validated.
+
+Barcode UPC designation: for most products
+
+Barcode AUDIO MEDIA type: Audio: Mini Disc		Video: 8mm Tape
+
+Please enter your barcode, seperated by a new line (or X or Q to exit):
+0
+3
+8
+0
+0
+0
+5
+5
+3
+7
+5
+2
+
+Entered bar-code: 038000553752
+
+The barcode 038000553752 has been successfully validated.
+
+Barcode UPC designation: for most products
+
+Barcode AUDIO MEDIA type: Audio: DCC		Video: Beta
+
+Please enter your barcode, seperated by a new line (or X or Q to exit):
+0
+7
+2
+7
+9
+9
+3
+3
+5
+2
+3
+6
+
+Entered bar-code: 072799335236
+
+The barcode 072799335236 has been successfully validated.
+
+Barcode UPC designation: for most products
+
+Barcode AUDIO MEDIA type: Audio: Unassigned		Video: VHS
+
+Please enter your barcode, seperated by a new line (or X or Q to exit):
+3
+0
+5
+2
+1
+6
+0
+8
+5
+0
+0
+2
+
+Entered bar-code: 305216085002
+
+The barcode 305216085002 has been successfully validated.
+
+Barcode UPC designation: drugs by National Drug Code number. Pharmaceuticals in the U.S. have the remainder of the UPC as their National Drug Code number.
+
+Barcode AUDIO MEDIA type: Audio: Unassigned		Video: Unassigned
+
+Please enter your barcode, seperated by a new line (or X or Q to exit):
+7
+0
+1
+0
+7
+7
+7
+0
+1
+0
+7
+7
+
+Entered bar-code: 701077701077
+
+Warning: Barcode error encountered with barcode 701077701077.
+
+Please enter your barcode, seperated by a new line (or X or Q to exit):
+0
+7
+9
+4
+0
+0
+8
+0
+4
+5
+0
+1
+
+Entered bar-code: 079400804501
+
+The barcode 079400804501 has been successfully validated.
+
+Barcode UPC designation: for most products
+
+Barcode AUDIO MEDIA type: Audio: Unassigned		Video: Unassigned
+
+Please enter your barcode, seperated by a new line (or X or Q to exit):
+0
+2
+4
+0
+0
+0
+1
+6
+2
+8
+6
+0
+
+Entered bar-code: 024000162860
+
+Warning: Barcode error encountered with barcode 024000162860.
+
+Please enter your barcode, seperated by a new line (or X or Q to exit):
+0
+1
+1
+1
+1
+0
+8
+5
+6
+8
+0
+7
+
+Entered bar-code: 011110856807
+
+The barcode 011110856807 has been successfully validated.
+
+Barcode UPC designation: for most products
+
+Barcode AUDIO MEDIA type: Audio: Unassigned		Video: Unassigned
+
+Please enter your barcode, seperated by a new line (or X or Q to exit):
+0
+5
+1
+0
+0
+0
+1
+3
+8
+1
+0
+1
+
+Entered bar-code: 051000138101
+
+The barcode 051000138101 has been successfully validated.
+
+Barcode UPC designation: for most products
+
+Barcode AUDIO MEDIA type: Audio: Unassigned		Video: Unassigned
+
+Please enter your barcode, seperated by a new line (or X or Q to exit):
+0
+7
+2
+4
+3
+8
+3
+4
+4
+4
+5
+2
+
+Entered bar-code: 072438344452
+
+The barcode 072438344452 has been successfully validated.
+
+Barcode UPC designation: for most products
+
+Barcode AUDIO MEDIA type: Audio: DCC		Video: Beta
+
+Please enter your barcode, seperated by a new line (or X or Q to exit):
+X
+Exiting program...
+bash-3.2$ ./a.out
+UPC VERIFICATION PROGRAM WRITTEN IN C
+
+Programm written by Robin Goetz. 
+Program compiled on Oct 24 2018 at 19:24:11. 
+
+
+Please enter your barcode, seperated by a new line (or X or Q to exit):
+Q
+Exiting program...
+bash-3.2$ ./a.out
+UPC VERIFICATION PROGRAM WRITTEN IN C
+
+Programm written by Robin Goetz. 
+Program compiled on Oct 24 2018 at 19:24:11. 
+
+
+Please enter your barcode, seperated by a new line (or X or Q to exit):
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+
+Entered bar-code: 01234567891011
+Error. Make sure all numbers entered are from 0-9.
+
+Please enter your barcode, seperated by a new line (or X or Q to exit):
+1 X
+Exiting program...
+bash-3.2$ exit
+exit
+
+Script done on Wed Oct 24 19:26:48 2018

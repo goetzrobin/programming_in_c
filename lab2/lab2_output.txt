@@ -1,0 +1,23 @@
+Script started on Fri 31 Aug 2018 05:53:55 PM EDT
+[?1034hbash-4.2$ cc lab2.c
+bash-4.2$ cc lab2.c[5Pexitcat lab1.c lab1task2.c lab1task3.c lab1_output.txt | mail -s "Lab 1 Robin Goetz"  tug29225@temple.edu[A[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@nano[C[C[C[C[C[C[C[1Pcat[C[C[C[C[C[C[Cls[Kscript lab1_output.txt[C[C[C[C[C[C[C[C[C[C[1Pcp lab1_copy.c lab1.c[C[C[C[C[C[C[C[C[C[Cscript lab1_output.txt[C[C[C[C[C[C[C[C[C[C[11Pnano lab1.c[2Pcc[C[C[C[C[C[C[C[2@nano[C[C[C[C[C[C[C[2Pcc[C[C[C[C[C[C[C[2@nano[C[C[C[C[C[C[Cscript lab1_output.txt[C[C[C[C[C[C[C[C[C[C[1Pcp lab1_copy.c lab1.c[C[C[C[C[C[C[C[C[C[Cscript lab1_output.txt[C[C[C[C[C[C[C[C[C[Cls[Kcat lab1.c[1@nano[C[C[C[C[C[C[C[1Pcat[C[C[C[C[C[C[C lab1task2.c lab1task3.c lab1_output.txt | mail -s "Lab 1 Robin Goetz"  tug29225@temple.edu[Aexit[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccc lab2.c[K./a.out
+MILEAGE REIMBURSMENT CALCULATOR
+Enter beginning odometer reading=>	100.23 5
+Enter ending odometer reading=>	200.25
+You traveled 100.0 miles. At $0.35 per mile, your reimbursment is $35.00. 
+bash-4.2$ ./a.out
+MILEAGE REIMBURSMENT CALCULATOR
+Enter beginning odometer reading=>	1234.34
+Enter ending odometer reading=>	234. 4.45
+You traveled 1110.1 miles. At $0.35 per mile, your reimbursment is $388.54. 
+bash-4.2$ ./a.out
+MILEAGE REIMBURSMENT CALCULATOR
+Enter beginning odometer reading=>	500.3445
+Enter ending odometer reading=>	6454 / .3445
+You traveled 145.0 miles. At $0.35 per mile, your reimbursment is $50.75. 
+bash-4.2$ exit
+exit
+
+Script done on Fri 31 Aug 2018 05:55:10 PM EDT
