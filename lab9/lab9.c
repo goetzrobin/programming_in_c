@@ -13,15 +13,18 @@
 * Date:        10/31/2018
 * Version:     1
 * Description: Reads in an OMR file and grades the students answers, 
-*              prints out a summary of questions marked incorrect,
-*              creates a summary of errors and prints out the students' scores
+*              generates a csv file for statistical analysis
 */
 int main()
 {
     display_startup_banner();
+
     puts("Starting Data processing...\n");
+
     processOMRData("newomr.txt", "test_taker_names.txt");
+
     puts("Finished generating CSV file. File stored as lab9_output.csv");
+
     return EXIT_SUCCESS;
 }
 /*
@@ -50,16 +53,15 @@ void display_startup_banner(void)
 * Globals:      LIMIT_TO_READING_LINES - number of lines to be read in from file
 *               NUMBER_OF_QUESTIONS_PER_STUDENT - number of questions students answered
 * Returns:      none
-* Description:  Processes OMR Data file, calculates answer summary, data about questions marked 
-*               incorect and student scores and output everything to command line
+* Description:  Processes OMR Data file and Name file, calculates scores and generates a csv file
 */
 void processOMRData(char *fname, char *fname_names)
 {
     FILE *IN = fopen(fname, "r"); // open the file and enable reading it
 
-    FILE *INTWO = fopen(fname_names, "r");
+    FILE *IN_NAMES = fopen(fname_names, "r");
 
-    FILE *OUTPUT = fopen("lab9_output.csv", "w");
+    FILE *OUTPUT = fopen("full_data.csv", "w");
 
     int id; // will hold id when looping over students in file
 
@@ -71,8 +73,6 @@ void processOMRData(char *fname, char *fname_names)
 
     double students_percentages[LIMIT_TO_READING_LINES]; // percentages of all students
 
-    int incorrect_answers[NUMBER_OF_QUESTIONS_PER_STUDENT] = {0}; // will keep track of count of how many times each answer was marked incorrectly
-
     int count = 0; // line count within file
 
     if (!IN)
@@ -82,7 +82,7 @@ void processOMRData(char *fname, char *fname_names)
         return;
     }
 
-    if (!INTWO)
+    if (!IN_NAMES)
     {
         printf("Error opening input file %s.\n", fname_names);
         perror(fname_names);
@@ -100,29 +100,23 @@ void processOMRData(char *fname, char *fname_names)
         {
             read_in_answer_key(answer_key, IN);
 
-            // we are done with our answer key and print the intro for all other entries
+            // we are done with our answer key and print the header for our csv file
             print_file_header(OUTPUT);
             continue;
         }
-        //read in name
-        get_name(INTWO, OUTPUT);
+
+        //read in name from file with same structure as omr file
+        get_name(IN_NAMES, OUTPUT);
+
         // loop over rest of row of data representing a students answers
         int i;
         for (i = 0; i < NUMBER_OF_QUESTIONS_PER_STUDENT; i++)
         {
             fscanf(IN, "%c", &scores[i]);
-
             char read_in_answer = scores[i];
-
-            // display error if encountering unexpected character
-            // if (read_in_answer != 'a' && read_in_answer != 'b' && read_in_answer != 'c' && read_in_answer != 'd')
-            // {
-            //     printf("Error when on line %d. Encountered unexpected character %c. SEE BELOW\n", count, read_in_answer);
-            // }
-            // printf( "(%d) %d. >%c<\n", count, i, scores[ i ] );
         }
 
-        calculate_single_entry_print_entrys_selection_summary(id, scores, answer_key, incorrect_answers, OUTPUT);
+        calculate_single_entry_print_entrys_selection_summary(id, scores, answer_key, OUTPUT);
 
         if (count >= LIMIT_TO_READING_LINES)
             break;
@@ -145,7 +139,6 @@ void read_in_answer_key(char answer_key[], FILE *IN)
     for (i = 0; i < NUMBER_OF_QUESTIONS_PER_STUDENT; i++)
     {
         fscanf(IN, "%c", &answer_key[i]);
-        // printf( "Answer key is (%d) %d. >%c<\n", count, i, answer_key[ i ] );
     }
 }
 
@@ -159,11 +152,9 @@ void read_in_answer_key(char answer_key[], FILE *IN)
 * Outputs:      incorrect_answers - Array that counts how often each answer was marked incorrect
 * Globals:      PRIME_PROGRAMMER - name of primary programmer
 * Returns:      student's grade percentage
-* Description:  Prints out the single students answers and an indicator if it is correct or not.
-*               Updates number of incorrect answers per question. Keeps track of single student's correct answers
-*               Finally, calculates the percentage of correct answers of current student
+* Description:  Prints out the single students answers and generates comma seperated line of answers and percentage score
 */
-void calculate_single_entry_print_entrys_selection_summary(int id, char scores[], char answer_key[], int incorrect_answers[], FILE *output_file)
+void calculate_single_entry_print_entrys_selection_summary(int id, char scores[], char answer_key[], FILE *output_file)
 {
     int i;
     double students_correct_answers = 0.0;
@@ -174,10 +165,6 @@ void calculate_single_entry_print_entrys_selection_summary(int id, char scores[]
         {
             students_correct_answers++;
         }
-        else
-        {
-            incorrect_answers[i]++;
-        }
 
         fprintf(output_file, "%c,", scores[i]);
     }
@@ -187,28 +174,30 @@ void calculate_single_entry_print_entrys_selection_summary(int id, char scores[]
 }
 
 /*
-* Function:     calculate_single_entry_print_entrys_selection_summary()
+* Function:     get_name()
 * Programmer:   Robin Goetz
 * Date:         10/31/2018
-* Inputs:       id - Id of currently evaluated student
-                scores - Scores of current student
-                answer_key - Array of all correct answers
-* Outputs:      incorrect_answers - Array that counts how often each answer was marked incorrect
-* Globals:      PRIME_PROGRAMMER - name of primary programmer
-* Returns:      student's grade percentage
-* Description:  Prints out the single students answers and an indicator if it is correct or not.
-*               Updates number of incorrect answers per question. Keeps track of single student's correct answers
-*               Finally, calculates the percentage of correct answers of current student
+* Inputs:       name_file - name of file storing list of full names
+                output_file - csv file to be written to
+* Outputs:      none
+* Globals:      MAX_LINE_LENGTH - maximum line length of data file
+*               ID_LENGTH - length of id 
+*               NAME_LENGTH - maximum length for each name string
+* Returns:      none
+* Description:  Gets id and full name from file and outputs it to a csv file
 */
 void get_name(FILE *name_file, FILE *output_file)
 {
     // get names from other file
-    char line[265];
-    char id_arr[5];
+    char line[MAX_LINE_LENGTH];
+    char id_arr[ID_LENGTH];
+
     int id_as_int;
-    char firstname[260] = "";
-    char secondname[260] = "";
-    char lastname[260] = "";
+
+    char firstname[NAME_LENGTH] = "";
+    char secondname[NAME_LENGTH] = "";
+    char lastname[NAME_LENGTH] = "";
+
     fgets(line, sizeof(line), name_file);
     sscanf(line, "%d %s %s %s", &id_as_int, firstname, secondname, lastname);
 
@@ -223,18 +212,14 @@ void get_name(FILE *name_file, FILE *output_file)
 }
 
 /*
-* Function:     calculate_single_entry_print_entrys_selection_summary()
+* Function:     print_file_header()
 * Programmer:   Robin Goetz
 * Date:         10/31/2018
-* Inputs:       id - Id of currently evaluated student
-                scores - Scores of current student
-                answer_key - Array of all correct answers
-* Outputs:      incorrect_answers - Array that counts how often each answer was marked incorrect
-* Globals:      PRIME_PROGRAMMER - name of primary programmer
-* Returns:      student's grade percentage
-* Description:  Prints out the single students answers and an indicator if it is correct or not.
-*               Updates number of incorrect answers per question. Keeps track of single student's correct answers
-*               Finally, calculates the percentage of correct answers of current student
+* Inputs:       output_file - pointer to csv file to be written to
+* Outputs:      none
+* Globals:      none
+* Returns:      none
+* Description:  Prints first line of csv file, table header
 */
 void print_file_header(FILE *output_file)
 {
