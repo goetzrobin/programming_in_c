@@ -1,6 +1,5 @@
 #include "../include/array_stack.h"
 
-
 /*
 * Location:    Temple University Computer Science
 * Programmer:  Robin Goetz
