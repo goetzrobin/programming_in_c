@@ -1,46 +1,14 @@
-#define _GNU_SOURCE
-
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-
-#define MAX_NAME_SIZE 250
-#define NUMBER_OF_QUESTIONS 10
-#define MAX_RESPONSE_COUNT 29
-
-typedef struct
-{
-    int id;
-    char full_name[MAX_NAME_SIZE];
-    char responses[NUMBER_OF_QUESTIONS];
-} bubble_response;
-
-typedef bubble_response full_data[MAX_RESPONSE_COUNT];
-
-void print_instructions(void);
-void process_choice(int user_selection, full_data data_array);
-void display_id();
-void display_name(full_data data_array);
-void display_range_of_ids();
-void display_last_name(full_data data_array);
-void process_data(full_data data_array);
-char *str_to_lower(const char *str, char output[MAX_NAME_SIZE]);
-void get_last_name(char *full_name, char *last_name);
-int get_range(int low, int high, full_data ret, full_data sorted);
-void selection_sort(full_data data);
-bubble_response print_one_data(full_data p, int idx);
-bubble_response create_bubble_response_struct(char *line);
+#include "../include/lab10.h"
 
 /*
 * Location:    Temple University Computer Science
 * Programmer:  Robin Goetz
 * Class:       Introduction to C Programming 1057  Fall 2018 Section 005
-* Assignment:  Number 8 – OMR Grading
-* Date:        10/31/2018
+* Assignment:  Number 10 – Bubble Sheet examination
+* Date:        11/28/2018
 * Version:     1
-* Description: Reads in an OMR file and grades the students answers, 
-*              generates a csv file for statistical analysis
+* Description: Reads in CSV file and allows user to execute different kinds of
+*              data mining options
 */
 int main()
 {
@@ -58,23 +26,21 @@ int main()
 }
 
 /*
-* Function:     get_name()
+* Function:     process_data()
 * Programmer:   Robin Goetz
-* Date:         10/31/2018
-* Inputs:       name_file - name of file storing list of full names
-                output_file - csv file to be written to
-* Outputs:      none
+* Date:         11/28/2018
+* Inputs:       * none *
+* Outputs:      data_array - array of structs, which function reads in from csv file
 * Globals:      MAX_LINE_LENGTH - maximum line length of data file
-*               ID_LENGTH - length of id 
-*               NAME_LENGTH - maximum length for each name string
+*               EXIT_FAILURE - code signaling program exited with failure
 * Returns:      none
-* Description:  Gets id and full name from file and outputs it to a csv file
+* Description:  Creates struct from CSV line and stores it in data_array
 */
 void process_data(full_data data_array)
 {
     char *file_name = "full_data.csv";
     FILE *file = fopen(file_name, "r");
-    char line[256];
+    char line[MAX_LINE_LENGTH];
     int counter = 0;
 
     if (!file)
@@ -97,17 +63,15 @@ void process_data(full_data data_array)
 }
 
 /*
-* Function:     get_name()
+* Function:     create_bubble_response_struct()
 * Programmer:   Robin Goetz
-* Date:         10/31/2018
-* Inputs:       name_file - name of file storing list of full names
-                output_file - csv file to be written to
+* Date:         11/28/2018
+* Inputs:       line - line of CSV file as string
 * Outputs:      none
-* Globals:      MAX_LINE_LENGTH - maximum line length of data file
-*               ID_LENGTH - length of id 
-*               NAME_LENGTH - maximum length for each name string
-* Returns:      none
-* Description:  Gets id and full name from file and outputs it to a csv file
+* Globals:      NUMBER_OF_QUESTIONS - number of questions in bubble_response
+*               MAX_NAME_SIZE - max length of name 
+* Returns:      bubble_response struct created by CSV line
+* Description:  Takes in string of one line of CSV file and creates struct
 */
 bubble_response create_bubble_response_struct(char *line)
 {
@@ -147,17 +111,14 @@ bubble_response create_bubble_response_struct(char *line)
 }
 
 /*
-* Function:     get_name()
+* Function:     print_instructions()
 * Programmer:   Robin Goetz
-* Date:         10/31/2018
-* Inputs:       name_file - name of file storing list of full names
-                output_file - csv file to be written to
+* Date:         11/28/2018
+* Inputs:       none
 * Outputs:      none
-* Globals:      MAX_LINE_LENGTH - maximum line length of data file
-*               ID_LENGTH - length of id 
-*               NAME_LENGTH - maximum length for each name string
+* Globals:      none
 * Returns:      none
-* Description:  Gets id and full name from file and outputs it to a csv file
+* Description:  Prints possible instructions to console
 */
 void print_instructions(void)
 {
@@ -170,17 +131,15 @@ void print_instructions(void)
 }
 
 /*
-* Function:     get_name()
+* Function:     process_choice()
 * Programmer:   Robin Goetz
-* Date:         10/31/2018
-* Inputs:       name_file - name of file storing list of full names
-                output_file - csv file to be written to
+* Date:         11/28/2018
+* Inputs:       user_selection - int representing users selection of chosen meu option
+*               data_array - array of bubble responses
 * Outputs:      none
-* Globals:      MAX_LINE_LENGTH - maximum line length of data file
-*               ID_LENGTH - length of id 
-*               NAME_LENGTH - maximum length for each name string
+* Globals:      EXIT_SUCCESS - code representing program exited with success
 * Returns:      none
-* Description:  Gets id and full name from file and outputs it to a csv file
+* Description:  processes user choice and selects correct subfunction
 */
 void process_choice(int user_selection, full_data data_array)
 {
@@ -204,17 +163,15 @@ void process_choice(int user_selection, full_data data_array)
 }
 
 /*
-* Function:     get_name()
+* Function:     display_id()
 * Programmer:   Robin Goetz
-* Date:         10/31/2018
-* Inputs:       name_file - name of file storing list of full names
-                output_file - csv file to be written to
+* Date:         11/28/2018
+* Inputs:       data_array - array of bubble responses
 * Outputs:      none
-* Globals:      MAX_LINE_LENGTH - maximum line length of data file
-*               ID_LENGTH - length of id 
-*               NAME_LENGTH - maximum length for each name string
+* Globals:      MAX_RESPONSE_COUNT - max number of resposnes in array
 * Returns:      none
-* Description:  Gets id and full name from file and outputs it to a csv file
+* Description:  prompts user for id of response to be displayed and 
+*               displays it if response with id exists
 */
 void display_id(full_data data_array)
 {
@@ -238,17 +195,16 @@ void display_id(full_data data_array)
 }
 
 /*
-* Function:     get_name()
+* Function:     display_name()
 * Programmer:   Robin Goetz
-* Date:         10/31/2018
-* Inputs:       name_file - name of file storing list of full names
-                output_file - csv file to be written to
+* Date:         11/28/2018
+* Inputs:       data_array - array of bubble responses
 * Outputs:      none
-* Globals:      MAX_LINE_LENGTH - maximum line length of data file
-*               ID_LENGTH - length of id 
-*               NAME_LENGTH - maximum length for each name string
+* Globals:      MAX_RESPONSE_COUNT - max number of resposnes in array
+*               MAX_NAME_SIZE - max size of name
 * Returns:      none
-* Description:  Gets id and full name from file and outputs it to a csv file
+* Description:  prompts user for name of response to be displayed and 
+*               displays it if response with name exists
 */
 void display_name(full_data data_array)
 {
@@ -279,22 +235,20 @@ void display_name(full_data data_array)
 }
 
 /*
-* Function:     get_name()
+* Function:     display_range_of_ids()
 * Programmer:   Robin Goetz
-* Date:         10/31/2018
-* Inputs:       name_file - name of file storing list of full names
-                output_file - csv file to be written to
+* Date:         11/28/2018
+* Inputs:       data_array - array of bubble responses
 * Outputs:      none
-* Globals:      MAX_LINE_LENGTH - maximum line length of data file
-*               ID_LENGTH - length of id 
-*               NAME_LENGTH - maximum length for each name string
+* Globals:      MAX_RESPONSE_COUNT - max number of resposnes in array
+*               MAX_NAME_SIZE - max size of name
 * Returns:      none
-* Description:  Gets id and full name from file and outputs it to a csv file
+* Description:  gets a range of ids by user and displays range of ids
 */
 void display_range_of_ids(full_data data_array)
 {
     int lower_limit, upper_limit;
-    full_data returned_array;
+    full_data returned_array[5];
 
     printf("\nEnter lower limit of a range of IDs: ");
     scanf("%d", &lower_limit);
@@ -320,19 +274,16 @@ void display_range_of_ids(full_data data_array)
 }
 
 /*
-* Function:     get_name()
+* Function:     get_range()
 * Programmer:   Robin Goetz
-* Date:         10/31/2018
-* Inputs:       name_file - name of file storing list of full names
-                output_file - csv file to be written to
+* Date:         11/28/2018
+* Inputs:       data_array - array of bubble responses
 * Outputs:      none
-* Globals:      MAX_LINE_LENGTH - maximum line length of data file
-*               ID_LENGTH - length of id 
-*               NAME_LENGTH - maximum length for each name string
+* Globals:      MAX_RESPONSE_COUNT - max number of resposnes in array
+*               MAX_NAME_SIZE - max size of name
 * Returns:      none
-* Description:  Gets id and full name from file and outputs it to a csv file
-*/
-int get_range(int low, int high, full_data ret, full_data sorted)
+* Description:  gets a range of ids by user and displays range of ids*/
+int get_range(int low, int high, full_data ret[], full_data sorted)
 {
     int i;
     int count = 0;
@@ -351,22 +302,20 @@ int get_range(int low, int high, full_data ret, full_data sorted)
     if (count == 0)
     {
         puts("Could not find any students with id within range.");
+        return 1;
     }
     return 0;
 }
 
 /*
-* Function:     get_name()
+* Function:     selection_sort()
 * Programmer:   Robin Goetz
-* Date:         10/31/2018
-* Inputs:       name_file - name of file storing list of full names
-                output_file - csv file to be written to
+* Date:         11/28/2018
+* Inputs:       data_array - array of bubble responses
 * Outputs:      none
-* Globals:      MAX_LINE_LENGTH - maximum line length of data file
-*               ID_LENGTH - length of id 
-*               NAME_LENGTH - maximum length for each name string
+* Globals:      MAX_RESPONSE_COUNT - max number of resposnes in array
 * Returns:      none
-* Description:  Gets id and full name from file and outputs it to a csv file
+* Description:  performs a selection sort on the data - sorting by id ascending
 */
 void selection_sort(full_data data)
 {
@@ -393,17 +342,16 @@ void selection_sort(full_data data)
 }
 
 /*
-* Function:     get_name()
+* Function:     display_last_name()
 * Programmer:   Robin Goetz
-* Date:         10/31/2018
-* Inputs:       name_file - name of file storing list of full names
-                output_file - csv file to be written to
+* Date:         11/28/2018
+* Inputs:       data_array - array of bubble responses
 * Outputs:      none
-* Globals:      MAX_LINE_LENGTH - maximum line length of data file
-*               ID_LENGTH - length of id 
-*               NAME_LENGTH - maximum length for each name string
+* Globals:      MAX_RESPONSE_COUNT - max number of resposnes in array
+*               MAX_NAME_SIZE - max size of name
 * Returns:      none
-* Description:  Gets id and full name from file and outputs it to a csv file
+* Description:  prompts user for lastname of response to be displayed and 
+*               displays it if response with name exists
 */
 void display_last_name(full_data data_array)
 {
@@ -437,17 +385,15 @@ void display_last_name(full_data data_array)
 }
 
 /*
-* Function:     get_name()
+* Function:     get_last_name()
 * Programmer:   Robin Goetz
-* Date:         10/31/2018
-* Inputs:       name_file - name of file storing list of full names
-                output_file - csv file to be written to
-* Outputs:      none
-* Globals:      MAX_LINE_LENGTH - maximum line length of data file
-*               ID_LENGTH - length of id 
-*               NAME_LENGTH - maximum length for each name string
+* Date:         11/28/2018
+* Inputs:       full_name - full name to be examined for lastname
+* Outputs:      last_name - last_name passed by reference
+* Globals:      MAX_RESPONSE_COUNT - max number of resposnes in array
+*               MAX_NAME_SIZE - max size of name
 * Returns:      none
-* Description:  Gets id and full name from file and outputs it to a csv file
+* Description:  looks at full name and determines the last name
 */
 void get_last_name(char *full_name, char *last_name)
 {
@@ -465,17 +411,15 @@ void get_last_name(char *full_name, char *last_name)
 }
 
 /*
-* Function:     get_name()
+* Function:     print_one_data()
 * Programmer:   Robin Goetz
-* Date:         10/31/2018
-* Inputs:       name_file - name of file storing list of full names
-                output_file - csv file to be written to
+* Date:         11/28/2018
+* Inputs:       p - array of responses
+*               idx - id of response to be displayed
 * Outputs:      none
-* Globals:      MAX_LINE_LENGTH - maximum line length of data file
-*               ID_LENGTH - length of id 
-*               NAME_LENGTH - maximum length for each name string
-* Returns:      none
-* Description:  Gets id and full name from file and outputs it to a csv file
+* Globals:      NUMBER_OF_QUESTIONS  - number of questions in a response
+* Returns:      bubble_response - displayed data item
+* Description:  prints specified item to console
 */
 bubble_response print_one_data(full_data p, int idx)
 {
