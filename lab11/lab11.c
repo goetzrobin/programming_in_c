@@ -4,8 +4,8 @@
 * Location:    Temple University Computer Science
 * Programmer:  Robin Goetz
 * Class:       Introduction to C Programming 1057  Fall 2018 Section 005
-* Assignment:  Number 8 – OMR Grading
-* Date:        10/31/2018
+* Assignment:  Number 11 – Stack
+* Date:        12/04/2018
 * Version:     1
 * Description: Reads in an OMR file and grades the students answers, 
 *              generates a csv file for statistical analysis
@@ -23,7 +23,7 @@ int main()
 /*
 * Function:     display_startup_banner()
 * Programmer:   Robin Goetz
-* Date:         10/17/2018
+* Date:         12/04/2018
 * Inputs:       none
 * Outputs:      none
 * Globals:      PRIME_PROGRAMMER - name of primary programmer
@@ -41,7 +41,7 @@ void display_startup_banner(void)
 /*
 * Function:     display_startup_banner()
 * Programmer:   Robin Goetz
-* Date:         10/17/2018
+* Date:         12/04/2018
 * Inputs:       none
 * Outputs:      none
 * Globals:      PRIME_PROGRAMMER - name of primary programmer
@@ -126,8 +126,8 @@ void stack_exerciser(char *filename)
 
 /* 
 * Function:     stack_push( )
-* Programmer:   Larry Learner
-* Date:         December 1, 2018
+* Programmer:   Robin Goetz
+* Date:         12/04/2018
 * Inputs:       arr - array holding the stack
 *               cur - current location of the top of the stack
 *               num - number to add to the top of the stack
@@ -152,8 +152,8 @@ int stack_push(int arr[], int **curr, int num)
 
 /* 
 * Function:     stack_print( )
-* Programmer:   Larry Learner
-* Date:         December 1, 2018
+* Programmer:   Robin Goetz
+* Date:         12/04/2018
 * Inputs:       arr - array holding the stack
 *               cur - current location of the top of the stack
 * Outputs:      * none *
@@ -183,8 +183,8 @@ void stack_print(int arr[], int **curr)
 
 /* 
 * Function:     stack_pop( )
-* Programmer:   Larry Learner
-* Date:         December1, 2018
+* Programmer:   Robin Goetz
+* Date:         12/04/2018
 * Inputs:       arr -array holding the stack
 *               cur -current location of the top of the stack
 * Outputs:      arr-array holding the stack
